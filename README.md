@@ -1,68 +1,101 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Deploying React app on GitHub pages 
 
-In the project directory, you can run:
 
-### `npm start`
+In this tutorial, I'll show you how I deployed a React app—which I created using create-react-app—to GitHub Pages.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequiristes 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+install Git and of course should have git account 
+install node.js
+inatall npm 
 
-### `npm test`
+## Let's start real worl
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- install react to create react boilerplate application to start work on.
 
-### `npm run build`
+`$ npm install -g create-react-app`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- create react app called 'react-test-gh-pages'
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`create-react-app react-test-gh-pages`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+now you can see react-test-gh-pages folder in your working directory 
 
-### `npm run eject`
+`cd react-test-gh-pages`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Start react application to check how does it goes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/9668906/51879955-522c7a00-23da-11e9-9938-55713c62bc89.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+let's go to git hub account and quickly create brand new repositiory to work on.
 
-## Learn More
+![image](https://user-images.githubusercontent.com/9668906/51880038-a7688b80-23da-11e9-8db4-d788db0a988b.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+that's allwe need to do on github account now back to terminal
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+to upload your react app on git we'll follow these steps
 
-### Code Splitting
+```
+#create a new git repository
+$ git init
+#add all changed file paths to staged changes
+$ git add .
+#commit all staged changes
+$ git commit -m 'initial commit'
+```
+now add our repositiory and push all the changes on master 
+```
+#add remote repository
+$ git remote add origin https://github.com/MonikaPatelIT/react-gh-pages.git
+#pushed local repository to remote repository on GitHub
+$ git push origin master
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+now  to install gh-pages which help to create gh-pages branch on github which holds all the build folder 
+```
+#install gh-pages package
+$ npm install --save gh-pages
+```
 
-### Analyzing the Bundle Size
+few chanegs in #package.json# file 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![image](https://user-images.githubusercontent.com/9668906/51880302-a4ba6600-23db-11e9-9084-e64c540afa7b.png)
 
-### Making a Progressive Web App
+Last step if it sucessfully deploy and published 
+```
+#deploy application
+$ npm run deploy
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+If you are not lucky enough and having error something like this 
 
-### Advanced Configuration
+```
+ One or more errors occurred.
+bash: /dev/tty: No such device or address
+error: failed to execute prompt script (exit code 1)
+fatal: could not read Username for 'https://github.com': Invalid argument
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! hydra-chat@0.1.0 deploy: `gh-pages -d build`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the hydra-chat@0.1.0 deploy script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
-### Deployment
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\{username}\AppData\Roaming\npm-cache\_logs\2018-02-27T03_21_59_227Z-debug.log
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The try the following solution 
 
-### `npm run build` fails to minify
+![image](https://user-images.githubusercontent.com/9668906/51880440-21e5db00-23dc-11e9-9a30-5badc2e2f603.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+or 
+
+![image](https://user-images.githubusercontent.com/9668906/51880474-3c1fb900-23dc-11e9-93fd-e9c892a7e9fe.png)
+
+for the original soure issue link here [https://github.com/tschaub/gh-pages/issues/230](https://github.com/tschaub/gh-pages/issues/230)
